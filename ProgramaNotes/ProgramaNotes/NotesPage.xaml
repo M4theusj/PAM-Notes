@@ -6,13 +6,18 @@
     <VerticalStackLayout>
         <Editor
             x:Name="FileEditor"
-            Placeholder="Digite aqui suas anotações"/>
-        <Button
-		x:Name="SaveButton"
-		Clicked="SaveButton_Clicked" />
-        <Button
-		x:Name="DeleteButton"
-		Clicked="DeleteButton_Clicked" />
+            Placeholder="Digite aqui o conteúdo do seu arquivo."/>
+        <HorizontalStackLayout>
 
+            <Button
+                x:Name="SaveButton"
+                Text="Salvar"
+                Clicked="SaveButton_Clicked"/>
+
+            <Button
+                x:Name="DeleteButton"
+                Text="Apagar"
+                Clicked="DeleteButton_Clicked"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

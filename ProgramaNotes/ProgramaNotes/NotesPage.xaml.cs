@@ -2,23 +2,32 @@ namespace ProgramaNotes;
 
 public partial class NotesPage : ContentPage
 {
+    string path = Path.Combine(FileSystem.AppDataDirectory, "arquivonovo.txt");
+    string text = "";
 
-    string path = Path.Combine(FileSystem.AppDataDirectory, "note.txt");
-    string content = " ";
     public NotesPage()
     {
-        InitializeComponent()
-
+        InitializeComponent();
+        if (File.Exists(path))
+        {
+            FileEditor.Text = File.ReadAllText(path);
+        }
     }
 
-    private void saveButton_Clicked(object sender, EventArgs e)
+    private void SaveButton_Clicked(object sender, EventArgs e)
     {
-        content = FileEditor.Text;
-        File.WriteAllText(path, content);
+     
+        text = FileEditor.Text;
+        File.WriteAllText(path, text);
+        DisplayAlert("Sucesso", "Arquivo salvo com sucesso", "Ok");
     }
 
     private void DeleteButton_Clicked(object sender, EventArgs e)
     {
-
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            FileEditor.Text = "";
+        }
     }
 }

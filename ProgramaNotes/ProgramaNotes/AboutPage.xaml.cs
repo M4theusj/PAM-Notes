@@ -7,12 +7,8 @@ public partial class AboutPage : ContentPage
         InitializeComponent();
     }
 
-    private void Confirm(object sender, EventArgs e)
+    private async void LearnMore_Clicked(object sender, EventArgs e)
     {
-        var userName = nameEntry.Text;
-        if (!string.IsNullOrWhiteSpace(userName))
-        {
-            welcomeLabel.Text = $"Seja bem vindo, {userName}!";
-        }
+        await Launcher.OpenAsync("https://www.google.com");
     }
 }
